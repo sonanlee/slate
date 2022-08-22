@@ -9,11 +9,11 @@ from slack_sdk import WebClient
 from slack_sdk.signature import SignatureVerifier
 
 from app.cache import Cache
-
+from app.config import SLACK_API_TOKEN, SLACK_SIGNING_SECRET, SQLALCHEMY_DATABASE_URI
 db = SQLAlchemy()
 migrate = Migrate()
-client = WebClient(token=os.environ["SLACK_API_TOKEN"])
-signature_verifier = SignatureVerifier(os.environ["SLACK_SIGNING_SECRET"])
+client = WebClient(token=SLACK_API_TOKEN) #os.environ["SLACK_API_TOKEN"])
+signature_verifier = SignatureVerifier(SLACK_SIGNING_SECRET)#os.environ["SLACK_SIGNING_SECRET"])
 
 # redis_client = redis.Redis(host=os.environ.get("REDIS_HOST", "localhost"), port=os.environ.get("REDIS_PORT", 6379), db=0)
 app_cache = Cache()
@@ -26,7 +26,7 @@ class Config:
     # FLASK_ENV = environ.get('FLASK_ENV')
 
     # Database
-    SQLALCHEMY_DATABASE_URI = os.environ.get("SQLALCHEMY_DATABASE_URI")
+    SQLALCHEMY_DATABASE_URI = SQLALCHEMY_DATABASE_URI #os.environ.get("SQLALCHEMY_DATABASE_URI")
     SQLALCHEMY_ECHO = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 

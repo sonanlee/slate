@@ -45,7 +45,7 @@ NOTIFICATION_BLOCKS = [
         "type": "section",
         "text": {
             "type": "mrkdwn",
-            "text": "Hello :wave: It's time to start your daily standup",
+            "text": "안녕하세요! :wave: 스탠드업 시간입니다 :) (Hello :wave: It's time to start your daily standup)",
         },
     },
     {
